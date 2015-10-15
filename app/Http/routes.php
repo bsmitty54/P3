@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/lorem', 'LoremController@getIndex');
+Route::post('/lorem', 'LoremController@postIndex');
+Route::get('/user', 'UserController@getIndex');
+Route::post('/user', 'Controller@postIndex');
