@@ -19,6 +19,7 @@ such as a page specific styesheets.
 @section('content')
 <p><a class="" href="{{ action("LoremController@getIndex") }}">Lorem-Ipsum Generator</a></p>
 <p><a class="" href="{{ action("UserController@getIndex") }}">User Profile Generator</a></p>
+<p><a class="" href="{{ action("PasswordController@getIndex") }}">XKCD Password Generator</a></p>
 @stop
 
 

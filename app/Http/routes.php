@@ -19,3 +19,5 @@ Route::get('/lorem', 'LoremController@getIndex');
 Route::post('/lorem', 'LoremController@postIndex');
 Route::get('/user', 'UserController@getIndex');
 Route::post('/user', 'Controller@postIndex');
+Route::get('/password', 'PasswordController@getIndex');
+Route::post('/password', 'PasswordController@postIndex');

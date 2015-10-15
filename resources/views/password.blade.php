@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Joe's Toolkit - Lorem-Ipsum Generator
+    Joe's Toolkit - XKCD Password Generator
 @stop
 
 
@@ -11,13 +11,87 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific styesheets.
 --}}
 @section('head')
-
+<?php require 'pwlogic.php'; ?>
 @stop
 
+<?php
+  if(isset($_POST["wordcat"])) {
+      echo '<body onload="setDropDowns()">';
+    } else {
+      echo '<body>';
+    }
+  if(isset($_POST["words"])) {
+    $words = $_POST["words"];
+  } else {
+    $words = "1";
+  }
+  if(isset($_POST["wordcat"])) {
+    $wordcat = $_POST["wordcat"];
+  } else {
+    $wordcat = "Random";
+  }
+  if(isset($_POST["schar"])) {
+    $schar = $_POST["schar"];
+  } else {
+    $schar = "0";
+  }
+  if(isset($_POST["digits"])) {
+    $digits = $_POST["digits"];
+  } else {
+    $digits = "0";
+  }
+  if(isset($_POST["separator"])) {
+    $separator = $_POST["separator"];
+  } else {
+    $separator = "Hyphen";
+  }
+  if(isset($_POST["pwcnt"])) {
+    $pwcnt = $_POST["pwcnt"];
+  } else {
+    $pwcnt = "1";
+  }
+?>
 
+<script>
+
+  function setDropDowns() {
+      //Get select object
+  var objSelect = document.getElementById("words");
+  //Set selected
+  setSelectedValue(objSelect, <?php echo $words; ?>);
+
+  var objSelect = document.getElementById("wordcat");
+  //Set selected
+  setSelectedValue(objSelect, <?php echo "'" . $wordcat . "'"; ?>);
+
+  var objSelect = document.getElementById("schar");
+  //Set selected
+  setSelectedValue(objSelect, <?php echo $schar; ?>);
+
+  var objSelect = document.getElementById("digits");
+  //Set selected
+  setSelectedValue(objSelect, <?php echo $digits; ?>);
+
+  var objSelect = document.getElementById("pwcnt");
+  //Set selected
+  setSelectedValue(objSelect, <?php echo $pwcnt; ?>);
+
+    function setSelectedValue(selectObj, valueToSet) {
+      for (var i = 0; i < selectObj.options.length; i++) {
+          if (selectObj.options[i].text== valueToSet) {
+              selectObj.options[i].selected = true;
+              return;
+          }
+      }
+  }
+    //alert("Executed");
+  };
+
+</script>
 
 @section('content')
-<form method='GET' action='index.php'>
+<form method="POST" action="{{URL::to('/password')}}">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <fieldset>
     <div class='pwform'>
     <p class="legend">Password Generator Options:</p>
@@ -55,7 +129,7 @@ such as a page specific styesheets.
               <option value='5'>5</option>
             </select>
             <?php
-              if(isset($_GET["words"]) && (int) $_GET["schar"] > (int) $_GET["words"] ) {
+              if(isset($_POST["words"]) && (int) $_POST["schar"] > (int) $_POST["words"] ) {
                 echo "<span>&nbsp;You can't have more special characters than words</span>";
               }
             ?>
@@ -71,7 +145,7 @@ such as a page specific styesheets.
                 <option value='5'>5</option>
               </select>
               <?php
-                if(isset($_GET["words"]) && (int) $_GET["digits"] > (int) $_GET["words"] ) {
+                if(isset($_POST["words"]) && (int) $_POST["digits"] > (int) $_POST["words"] ) {
                   echo "<span>&nbsp;You can't have more digits than words</span>";
                 }
               ?>
@@ -103,6 +177,29 @@ such as a page specific styesheets.
 
   </fieldset>
 </form>
+
+  <div class="passwords">
+    <?php
+      if(isset($_POST["words"])) {
+        if ((int) $_POST["words"] >= (int) $_POST["schar"] && (int) $_POST["words"] >= (int) $_POST["digits"]) {
+          echo "<br>";
+          echo '<form class="pwform">';
+          echo "<p class='legend'>Here are your passwords:</p>";
+          //echo "<pre>";
+          //print_r($_POST);
+          //print_r($wordlist);
+          //print_r($pw);
+          //echo "</pre>";
+          foreach($pw as $pword)
+          echo '<div class="pword">' . $pword . '</div>';
+          echo "<br>";
+          echo "</form>";
+          echo "<br><br>";
+        }
+      }
+      ?>
+
+  </div>
 <br><br>
 <p><a class="" href="{{URL::to('/')}}">Back to Toolkit Home</a></p>
 @stop
@@ -114,5 +211,7 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
-
+<script>
+document.getElementById(<?php echo "'" . $separator . "'"; ?>).checked = true;
+</script>
 @stop
