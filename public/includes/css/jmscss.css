@@ -290,3 +290,10 @@ div.pword {
   font-weight: bold;
   font-family:serif;
 }
+
+div a.home {
+    text-align: center;
+    display: block;
+    
+    width: 80%;
+}

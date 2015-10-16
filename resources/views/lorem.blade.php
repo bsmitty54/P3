@@ -49,10 +49,21 @@ such as a page specific styesheets.
 
   </fieldset>
 </form>
-<br><p><a class="" href="{{URL::to('/')}}">Back to Toolkit Home</a></p>
+<br><div><a class="home" href="{{URL::to('/')}}">Back to Toolkit Home</a></div>
 
   <div class="passwords">
+    @if (isset($paragraphs))
+      <br>
+      <form class="pwform">
+      <p class='legend'>Here is your text:</p>
+      @foreach ($paragraphs as $paragraph)
 
+          {{ $paragraph }}
+
+        <hr>
+      @endforeach
+      </form>
+    @endif
   </div>
 <br><br>
 

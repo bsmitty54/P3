@@ -21,6 +21,15 @@ class LoremController extends Controller {
      * Responds to requests to POST /books/create
      */
     public function postIndex() {
-        return view('lorem');
+        $faker = \Faker\Factory::create();
+        $litype = $_POST["litype"];
+        if ($litype == "paragraphs") {
+          $paragraphs = $faker->paragraphs($nb = $_POST["num"]);
+        } elseif ($litype == "sentences") {
+          $paragraphs = $faker->sentences($nb = $_POST["num"]);
+        } else {
+          $paragraphs = $faker->words($nb = $_POST["num"]);
+        }
+        return view('lorem')->with('paragraphs',$paragraphs);
     }
 }

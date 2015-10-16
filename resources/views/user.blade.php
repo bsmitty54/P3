@@ -63,7 +63,7 @@ such as a page specific styesheets.
 
   </fieldset>
 </form>
-<br><p><a class="" href="{{URL::to('/')}}">Back to Toolkit Home</a></p>
+<br><div><a class="home" href="{{URL::to('/')}}">Back to Toolkit Home</a></div>
 
   <div class="passwords">
     @if (isset($users))
