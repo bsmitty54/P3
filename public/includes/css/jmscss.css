@@ -254,6 +254,18 @@ legend {color:#560753; font-family: annie-use-your-telescope; font-style: italic
 
 }
 
+.pwform span {
+    text-align: right;
+    margin: 5px 5px 5px 30px;
+    width: 100px;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 0px;
+    font-weight: 700;
+	color:#560753;
+
+}
+
 .pwform input, .pwform select, .pwform input[type="file"] {
 	background-color: #DEE5F7;
 	color: black;
@@ -263,10 +275,6 @@ legend {color:#560753; font-family: annie-use-your-telescope; font-style: italic
 	height: 24px;
 	display: inline;
 
-}
-
-.pwform span {
-  color: red;
 }
 
 input[type="checkbox"], input[type="radio"] {

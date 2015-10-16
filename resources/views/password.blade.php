@@ -177,6 +177,7 @@ such as a page specific styesheets.
 
   </fieldset>
 </form>
+<p><a class="" href="{{URL::to('/')}}">Back to Toolkit Home</a></p>
 
   <div class="passwords">
     <?php
@@ -201,7 +202,7 @@ such as a page specific styesheets.
 
   </div>
 <br><br>
-<p><a class="" href="{{URL::to('/')}}">Back to Toolkit Home</a></p>
+
 @stop
 
 
