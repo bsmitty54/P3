@@ -40,7 +40,7 @@
               <li><a class="" href="http://p2.jsmitty54php.com">Project Two - View</a></li>
               <li><a class="" href="https://github.com/bsmitty54/P2">Project Two - Github</a></li>
               <li><a class="" href="http://p3.jsmitty54php.com">Project Three - View</a></li>
-              <li><a class="" href="https://github.com/bsmitty54/P2">Project Three - Github</a></li>
+              <li><a class="" href="https://github.com/bsmitty54/P3">Project Three - Github</a></li>
               <li><a class="" href="">Project Four - View</a></li>
               <li><a class="" href="">Project Four - Github</a></li>
               <li><a class="" href="http://www.jsmitty54cf.com/mywebsite">My ColdFusion Project</a></li>
