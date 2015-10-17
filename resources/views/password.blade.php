@@ -11,45 +11,22 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific styesheets.
 --}}
 @section('head')
-<?php require 'pwlogic.php'; ?>
+
+
 @stop
 
 <?php
-  if(isset($_POST["wordcat"])) {
+  if(null !== Request::input('wordcat')) {
       echo '<body onload="setDropDowns()">';
     } else {
       echo '<body>';
     }
-  if(isset($_POST["words"])) {
-    $words = $_POST["words"];
-  } else {
-    $words = "1";
-  }
-  if(isset($_POST["wordcat"])) {
-    $wordcat = $_POST["wordcat"];
-  } else {
-    $wordcat = "Random";
-  }
-  if(isset($_POST["schar"])) {
-    $schar = $_POST["schar"];
-  } else {
-    $schar = "0";
-  }
-  if(isset($_POST["digits"])) {
-    $digits = $_POST["digits"];
-  } else {
-    $digits = "0";
-  }
-  if(isset($_POST["separator"])) {
-    $separator = $_POST["separator"];
-  } else {
-    $separator = "Hyphen";
-  }
-  if(isset($_POST["pwcnt"])) {
-    $pwcnt = $_POST["pwcnt"];
-  } else {
-    $pwcnt = "1";
-  }
+  $words = Request::input('words', '1');
+  $wordcat = Request::input('wordcat', 'Random');
+  $schar = Request::input('schar', '0');
+  $digits = Request::input('digits', '0');
+  $separator = Request::input('separator', 'Hyphen');
+  $pwcnt = Request::input('pwcnt', '1');
 ?>
 
 <script>
@@ -129,8 +106,8 @@ such as a page specific styesheets.
               <option value='5'>5</option>
             </select>
             <?php
-              if(isset($_POST["words"]) && (int) $_POST["schar"] > (int) $_POST["words"] ) {
-                echo "<span>&nbsp;You can't have more special characters than words</span>";
+              if(null !== Request::input('words') && (int) Request::input('schar') > (int) Request::input('words') ) {
+                echo "<span class='errormsg'>&nbsp;You can't have more special characters than words</span>";
               }
             ?>
           </div>
@@ -145,8 +122,8 @@ such as a page specific styesheets.
                 <option value='5'>5</option>
               </select>
               <?php
-                if(isset($_POST["words"]) && (int) $_POST["digits"] > (int) $_POST["words"] ) {
-                  echo "<span>&nbsp;You can't have more digits than words</span>";
+                if(null !== Request::input('words') && (int) Request::input('digits') > (int) Request::input('words') ) {
+                  echo "<span class='errormsg'>&nbsp;You can't have more digits than words</span>";
                 }
               ?>
           </div>
@@ -181,8 +158,8 @@ such as a page specific styesheets.
 
   <div class="passwords">
     <?php
-      if(isset($_POST["words"])) {
-        if ((int) $_POST["words"] >= (int) $_POST["schar"] && (int) $_POST["words"] >= (int) $_POST["digits"]) {
+      if(null !== Request::input('words')) {
+        if ((int) Request::input('words') >= (int) Request::input('schar') && (int) Request::input('words') >= (int) Request::input('digits')) {
           echo "<br>";
           echo '<form class="pwform">';
           echo "<p class='legend'>Here are your passwords:</p>";

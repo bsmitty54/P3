@@ -13,7 +13,7 @@
   font-family:serif;
   background-color:#f5e8f5;
   border:none;border-radius:0px;
-  background-image: url("../classimages/11_highland_deck_sunset.jpg");
+  background-image: url("/images/11_highland_deck_sunset.jpg");
   background-repeat: repeat-x;
   background-size: auto 100%;
 }
@@ -266,6 +266,17 @@ legend {color:#560753; font-family: annie-use-your-telescope; font-style: italic
 
 }
 
+.pwform span.errormsg {
+  text-align: left;
+  margin: 5px 5px 5px 5px;
+  width: 350px;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 0px;
+  font-weight: 300;
+  color: red;
+}
+
 .pwform input, .pwform select, .pwform input[type="file"] {
 	background-color: #DEE5F7;
 	color: black;
@@ -294,6 +305,24 @@ div.pword {
 div a.home {
     text-align: center;
     display: block;
-    
+
     width: 80%;
+}
+
+p a.toollink {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 1.5em;
+}
+
+img.screenshot {
+  float: right;
+  margin: 0px 0px 0px 0px !important;
+  text-align: right !important;
+  vertical-align: bottom !important;
+}
+
+p.desc {
+  margin-left: 20px;
+  color: blue;
 }

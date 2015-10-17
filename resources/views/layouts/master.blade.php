@@ -9,7 +9,7 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-    <link href="/includes/css/jmscss.css" type='text/css' rel='stylesheet'>
+    <link href="/css/jmscss.css" type='text/css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 

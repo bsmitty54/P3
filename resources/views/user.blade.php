@@ -12,9 +12,6 @@ such as a page specific styesheets.
 --}}
 @section('head')
 
-
-
-
 @stop
 
 @section('content')
@@ -26,17 +23,14 @@ such as a page specific styesheets.
       <div class='field'>
         <label for='users'>How Many Users:</label>
         <?php
-          $value = '10';
-          if(isset($_POST["users"])) {
-            $value = $_POST["users"];
-          }
+          $value = Request::input('users', '10');
         ?>
         <input type="number" name="users" min="1" max="99" value="<?php echo $value; ?>">
       </div>
       <label for='address'>Additional Items:</label>
       <?php
         $checked = '';
-        if(isset($_POST["address"])) {
+        if(null !== Request::input('address')) {
           $checked = 'checked';
         }
       ?>
@@ -44,7 +38,7 @@ such as a page specific styesheets.
       <label for='dob'></label>
       <?php
         $checked = '';
-        if(isset($_POST["dob"])) {
+        if(null !== Request::input('dob')) {
           $checked = 'checked';
         }
       ?>
@@ -52,7 +46,7 @@ such as a page specific styesheets.
       <label for='profile'></label>
       <?php
         $checked = '';
-        if(isset($_POST["profile"])) {
+        if(null !== Request::input('profile')) {
           $checked = 'checked';
         }
       ?>

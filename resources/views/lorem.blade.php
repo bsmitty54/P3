@@ -15,11 +15,7 @@ such as a page specific styesheets.
 @stop
 
 <?php
-  if(isset($_POST["litype"])) {
-    $litype = $_POST["litype"];
-  } else {
-    $litype = "paragraphs";
-  }
+  $litype = Request::input('litype', 'paragraphs');
 ?>
 
 @section('content')
@@ -31,10 +27,7 @@ such as a page specific styesheets.
       <div class='field'>
         <label for='num'>How Many:</label>
         <?php
-          $value = '10';
-          if(isset($_POST["num"])) {
-            $value = $_POST["num"];
-          }
+          $value = Request::input('num', '10');
         ?>
         <input type="number" name="num" min="1" max="99" value="<?php echo $value; ?>">
       </div>

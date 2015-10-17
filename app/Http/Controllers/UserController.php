@@ -3,6 +3,8 @@
 namespace P3\Http\Controllers;
 
 use P3\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class UserController extends Controller {
 
@@ -20,24 +22,24 @@ class UserController extends Controller {
     /**
      * Responds to requests to POST /books/create
      */
-    public function postIndex() {
+    public function postIndex(Request $request) {
         $faker = \Faker\Factory::create();
 
         // initialize an array to store the user date
         $users = Array();
         $num=0;
-        if (isset($_POST["users"])) {
-          $num = $_POST["users"];
+        if (null !== $request->input('users')) {
+          $num = $request->input('users');
         }
         for ($i=0; $i<$num; $i++) {
           $users[$i][0] = $faker->name;
-          if (isset($_POST["address"])) {
+          if (null !== $request->input('address')) {
             $users[$i][1] = $faker->address;
           }
-          if (isset($_POST["dob"])) {
+          if (null !== $request->input('dob')) {
             $users[$i][2] = $faker->dateTimeThisCentury->format('Y-m-d');
           }
-          if (isset($_POST["profile"])) {
+          if (null !== $request->input('profile')) {
             $users[$i][3] = $faker->text;
           }
         }
