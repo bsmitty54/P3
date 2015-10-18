@@ -67,7 +67,7 @@ class PasswordController extends Controller {
             // if wordlist has more entries than word needed for password, assure uniqueness
             $newword = $wordlist[rand(0,count($wordlist)-1)];
             while (array_search($newword,$rwords) && $num <= count($wordlist)) {
-              $newword = $wordlist[rand(0,count($wordlist))];
+              $newword = $wordlist[rand(0,count($wordlist)-1)];
             }
             //$newword = "test";
             $rwords[$i] = $newword;
