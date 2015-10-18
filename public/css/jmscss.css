@@ -12,7 +12,8 @@
   font-weight: bold;
   font-family:serif;
   background-color:#f5e8f5;
-  border:none;border-radius:0px;
+  border: solid 1px;
+  border-radius:0px;
   background-image: url("/images/11_highland_deck_sunset.jpg");
   background-repeat: repeat-x;
   background-size: auto 100%;
@@ -75,10 +76,10 @@
 }
 
 #maincontent {
-  height: 530px;
+  height: 550px;
   margin-top: 0px;
   border-bottom: solid thin;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 
@@ -94,8 +95,8 @@ p.description {
 div.transbox {
     margin: 0px 30% 0px 30%;
     background-color: #ffffff;
-    border: none;
-    opacity: 0.8;
+    border: solid 3px;
+    opacity: 0.6;
 }
 
 
