@@ -17,3 +17,4 @@ No login required.
 ## Outside code
 * Bootstrap: http://getbootstrap.com/
 * fzaninotto/faker: https://packagist.org/packages/fzaninotto/faker
+* Laravel Framework: http://laravel.com
